@@ -2,19 +2,20 @@
 
 ## Containerization
 
-OS-Level Virtualizaion via isolation.
+OS-Level Virtualizaion via isolation. A shared kernel providing multiple **isolated** user space instances know as **containers** or **zones** or **jails**. Often compared to virtualization. 
 
 ### Container
 
-A runnable instance of an image.
+A runnable instance of an image. An **isolated** process executing the image in a **cgroup**.
 
 ### Image
 
-A read only template for a container instance
+A read only template for a container instance. Composed of seperate **layers** containing the needed environment and application files needed to run isolated within the container. Layers become merged with the content from each new layer overwriting ( if necesary ) the previous ones.
 
 #### Layers
 
- - Writable / Container **Volume** e.g. application code / runtime files
+ - Writable / Container **Volume** e.g. runtime files
+ - application code
  - software / Image **Layer** e.g. Python NGINX
  - os / Image **Layer** e.g. ubuntu alpine 
 
@@ -85,8 +86,8 @@ Responsible for managing the cluster. Typicaliy more than one in HA mode and one
 
 #### Localhost
 
- - minikube
- - kind
+ - minikube Works on top of a hypervisor and requires kubectl
+ - kind Is k8s in Docker
 
 #### On Premise
 
@@ -106,7 +107,8 @@ Responsible for managing the cluster. Typicaliy more than one in HA mode and one
 
 ## k8s objects
 
-Objects are persistent entities. They are a record of intent for the cluster to keep the desired state. Objects have a **Spec** describing the desired and **Status** for the current state.
+Objects are persistent entities. They are a record of intent for the cluster to keep the desired state.
+Objects have a **Spec** describing the desired and **Status** for the current state.
 Objects are Pods Services Namespaces Volumes etc.
 
 ### Namespaces
@@ -166,7 +168,7 @@ This exposes pods to the outside world. Use **end point** object to track pods. 
  
  - **LoadBalancer** exposes the Service externally using a cloud provider's load balancer. NodePort and ClusterIP Services to which the external load balancer routes are created automatically.
  
- - **ExternalName** maps te Service to the contents of the externalName field by returning a CNAME record with its value. No proxying of any kind is set up.
+ - **ExternalName** maps the Service to the contents of the externalName field by returning a CNAME record with its value. No proxying of any kind is set up.
 
 #### Service Manifest Example
 
