@@ -22,7 +22,7 @@ Using a bash script to controll salt appears to be a quicker solution to using t
 ## Dashboard
 
 Installed with a working and accesible dashboard via salt & bash scripts using the kubeadm method to setup a single host cluster.
-admin token available in ```sync/k8s/admin-user-token.txt
+admin token available in ```sync/k8s/admin-user-token.txt```
 
 Manually run from the VM
 
