@@ -22,15 +22,26 @@ Using a bash script to controll salt appears to be a quicker solution to using t
 ## Dashboard
 
 Installed with a working and accesible dashboard via salt & bash scripts using the kubeadm method to setup a single host cluster.
-admin token available in ```sync/k8s/admin-user-token.txt```
-
-Manually run from the VM
+admin token available in ```sync/k8s/admin-user-token.txt```.
 
 ```bash
-kubectl proxy --address="{virtualbox_nat_ip}"
-# eg kubectl proxy --address="10.0.2.15"
+grep -E "^token:" sync/k8s/admin-user-token.txt | tr -s " " | cut -d " " -f 2
 ```
 
+Manually run the proxy from main with ```kubectl proxy --address="{virtualbox_nat_ip}"``` VM:
+```bash
+kubectl proxy --address="10.0.2.15" # in my case
+```
+```bash
+kubectl proxy --address="0.0.0.0" # or listen on all available but with some potential unwanted side effects
+```
+```bash
+ip address show | grep -E " inet .*/24" | tr -s " " | cut -d " " -f 3 | cut -d "/" -f 1 # List available IPv4 addresses
+ip address show | grep -E " inet .*/24" | tr -s " " | cut -d " " -f 3 | cut -d "/" -f 1 | sed -n -e "1{p;q;}" # Get the first address
+```
+```bash
+kubectl proxy --address="$(ip address show | grep -E " inet .*/24" | tr -s " " | cut -d " " -f 3 | cut -d "/" -f 1 | sed -n -e "1{p;q;}")"
+```
 [k8s Dashboard](http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/)
 
 ## Set local kubectl
