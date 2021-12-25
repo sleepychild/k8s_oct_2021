@@ -1,32 +1,13 @@
-Name:         kubernetes-dashboard-certs
+Name:         admin-user-token-5qvmw
 Namespace:    kubernetes-dashboard
-Labels:       k8s-app=kubernetes-dashboard
-Annotations:  <none>
+Labels:       <none>
+Annotations:  kubernetes.io/service-account.name: admin-user
+              kubernetes.io/service-account.uid: d244eeb6-1c72-434d-acc9-08e04ae1f660
 
-Type:  Opaque
+Type:  kubernetes.io/service-account-token
 
 Data
 ====
-
-
-Name:         kubernetes-dashboard-csrf
-Namespace:    kubernetes-dashboard
-Labels:       k8s-app=kubernetes-dashboard
-Annotations:  <none>
-
-Type:  Opaque
-
-Data
-====
-csrf:  0 bytes
-
-
-Name:         kubernetes-dashboard-key-holder
-Namespace:    kubernetes-dashboard
-Labels:       k8s-app=kubernetes-dashboard
-Annotations:  <none>
-
-Type:  Opaque
-
-Data
-====
+namespace:  20 bytes
+token:      eyJhbGciOiJSUzI1NiIsImtpZCI6ImdKU0NjSnNveUZ0Y1dhQzZub2ZXX3M0TnE5VUMtSTRld1llNTZuZmRydmMifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJrdWJlcm5ldGVzLWRhc2hib2FyZCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJhZG1pbi11c2VyLXRva2VuLTVxdm13Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQubmFtZSI6ImFkbWluLXVzZXIiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC51aWQiOiJkMjQ0ZWViNi0xYzcyLTQzNGQtYWNjOS0wOGUwNGFlMWY2NjAiLCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6a3ViZXJuZXRlcy1kYXNoYm9hcmQ6YWRtaW4tdXNlciJ9.iy_nczS7sG5PnqXBIfzXw5g-tJhaJZoLnHbikjoqzR9JjLITACZ5ecuSO-Be79_Qkfxd7_MzPtrKacT4orPsJfyoJs4dkQ-Oz45hSRoWMWqgIoq5rP5HMZsp6uO8IHWmoxz9SaQ5-_IOzY2N2uH0alxL82eZUW9pOsd6P_ZSiX_lgXRU1KEJHeXjISOuLyvd6q1uXc9We0XfEzyLnhcYjrM7K96S5JbQKbZ1ZWJe0kL9yHDClxX846Qfpmxm9Cx0kX3VzbXXko-w59sZP8huRY1R5mLQz6ludp3-gcdeihRUYjod1raOtkAawbt1ZufCKBTuDx_7iyWFiFUTrP2SkQ
+ca.crt:     1099 bytes
