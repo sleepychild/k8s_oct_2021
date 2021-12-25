@@ -18,6 +18,15 @@ cluster.init:
     - group: vagrant
     - mode: 755
 
+/sync/etc/kubernetes/admin.conf:
+  file.copy:
+    - source: /etc/kubernetes/admin.conf
+    - makedirs: true
+    - user: vagrant
+    - group: vagrant
+    - mode: 755
+
+
 node.taint:
   cmd.run:
     - name: kubectl taint nodes --all node-role.kubernetes.io/master-

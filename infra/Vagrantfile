@@ -53,7 +53,7 @@ Vagrant.configure("2") do |config|
     node.vm.hostname = "main"
 
     node.vm.provider :virtualbox do |config_vbox|
-      config_vbox.customize ["modifyvm", :id, "--memory", "4096"] 
+      config_vbox.customize ["modifyvm", :id, "--memory", "3072"] 
     end
 
     node.trigger.after :up do |trigger|
@@ -82,30 +82,6 @@ Vagrant.configure("2") do |config|
       host: 5000, 
       auto_correct: true
 
-    # concourse remote
-    node.vm.network "forwarded_port",
-      guest: 9000, 
-      host: 9000, 
-      auto_correct: true
-
-    # Elastic Search
-    node.vm.network "forwarded_port",
-      guest: 9200, 
-      host: 9200, 
-      auto_correct: true
-
-    # Logstash
-    node.vm.network "forwarded_port",
-      guest: 5044, 
-      host: 5044, 
-      auto_correct: true
-
-    # Kibana
-    node.vm.network "forwarded_port",
-      guest: 5601,
-      host: 5601, 
-      auto_correct: true
-
     # k8s dashboard
     node.vm.network "forwarded_port",
       guest: 8001, 
@@ -120,7 +96,7 @@ Vagrant.configure("2") do |config|
 
     # Main external address
     node.vm.network "public_network",
-      ip: "192.168.201.120",
+      ip: "192.168.100.120",
       bridge: "enp0s31f6"
 
     # Main box salt master

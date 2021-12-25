@@ -1,6 +1,6 @@
 addrepo.kubernetes:
   cmd.script:
-    - name: "Add Docker Repo"
+    - name: "Add k8s Repo"
     - source: "/sync/scripts/kubernetes_repo.sh"
     - creates: 
       - /usr/share/keyrings/kubernetes-archive-keyring.gpg
