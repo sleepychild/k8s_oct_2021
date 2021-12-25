@@ -14,6 +14,10 @@ dashboard.token:
   cmd.run:
     - name: kubectl -n kubernetes-dashboard describe secret $(kubectl -n kubernetes-dashboard get secret | grep admin-user | awk '{print $1}') > /sync/k8s/admin-user-token.txt
 
+dashboard.token.only:
+  cmd.run:
+    - name: grep -E "^token:" /sync/k8s/admin-user-token.txt | tr -s " " | cut -d " " -f 2 > /sync/k8s/token
+
 token.create:
   cmd.run:
     - name: kubeadm token create abcdef.1234567890abcdef
