@@ -1,11 +1,13 @@
 # k8s infra
 
-## Deploy
+## Manage
 
-Bring up and down with following.
-
+### Deploy Infra
 ```bash
 ./deploy.sh 2>&1 | tee "log/deploy $(date).log"
+```
+### Destroy Infra
+```bash
 ./destroy.sh 2>&1 | tee "log/destroy $(date).log"
 ``` 
 
