@@ -14,13 +14,13 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", path: "provision/disable_ufw.sh"
 
   config.vm.provider :virtualbox do |config_vbox|
-    config_vbox.customize ["modifyvm", :id, "--memory", "1048"] 
+    config_vbox.customize ["modifyvm", :id, "--memory", "1024"] 
   end
 
   # Sub nodes
   [
-    # ["node1", "192.168.120.101"],
-    # ["node2", "192.168.120.102"],
+    ["node1", "192.168.120.101"],
+    ["node2", "192.168.120.102"],
   ].each do |node_name,node_ip|
     config.vm.define "#{node_name}" do |node|
       node.vm.hostname = "#{node_name}"
@@ -118,8 +118,8 @@ Vagrant.configure("2") do |config|
 
       salt.seed_master = {
         "main" => "sync/salt/key/main.pub",
-        # "node1" => "sync/salt/key/node1.pub",
-        # "node2" => "sync/salt/key/node2.pub",
+        "node1" => "sync/salt/key/node1.pub",
+        "node2" => "sync/salt/key/node2.pub",
       }
     end
   end
