@@ -56,9 +56,30 @@ Install kubelet, kubeadm and kubectl from the k8s repo. We should block the pack
 
 ### Control Plane
 
+To initialize k8s we use the kubeadm cmd.
+
+```bash
+kubeadm init --apiserver-advertise-address=192.168.120.100 --pod-network-cidr 10.244.0.0/16
+```
+
+The kubeadm cmd can also take it's parameters as a file.
+
 ### Memeber Nodes
 
+To join the cluster we use the following.
+
+```bash
+# specific to our case !!!
+kubeadm join 192.168.120.100:6443 --token abcdef.1234567890abcdef --discovery-token-ca-cert-hash sha256:`cat /sync/k8s/hash.txt`
+```
+
 ### Pod Network
+
+The kube-system coredns pods require a CNI to function propperly.
+
+Flannel VS Calico and general [CNI comparison doc](https://www.suse.com/c/rancher_blog/comparing-kubernetes-cni-providers-flannel-calico-canal-and-weave/).
+
+We will use flannel.
 
 ## Manage and Upgrade
 
