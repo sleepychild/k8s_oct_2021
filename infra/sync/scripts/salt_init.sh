@@ -20,11 +20,11 @@ sudo salt 'main' state.apply 08_kubernetes_dashboard
 
 # sudo salt 'node2' state.apply 08_kubernetes_join
 
-sudo salt 'main' state.apply 09_terraform_install
+# sudo salt 'main' state.apply 09_terraform_install
 
-sudo salt 'main' state.apply 09_helm_install
+# sudo salt 'main' state.apply 09_helm_install
 
-sudo salt 'main' state.apply 09_kompose_install
+# sudo salt 'main' state.apply 09_kompose_install
 
 # sudo salt 'main' state.apply 10_concourse
 
