@@ -2,5 +2,10 @@
     "debug": true, 
     "tls": false, 
     "insecure-registries": ["192.168.201.120:5000"],
-    "exec-opts": ["native.cgroupdriver=systemd"]
+    "exec-opts": ["native.cgroupdriver=systemd"],
+    "log-driver": "json-file",
+    "log-opts": {
+        "max-size": "100m"
+    },
+    "storage-driver": "overlay2"
 }

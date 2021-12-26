@@ -30,6 +30,30 @@
 
  1. **We need** a container runtime. docker for example. it should be installed and working.
 
+### Docker for k8s prerequisites
+
+K8S require docker to use systemd as a cgroup driver. This is set in the docker daemon config file ```/etc/docker/daemon.json```. Example contents...
+
+    ```json
+    {
+        "debug": true, 
+        "tls": false, 
+        "insecure-registries": ["192.168.201.120:5000"],
+        "exec-opts": ["native.cgroupdriver=systemd"],
+        "log-driver": "json-file",
+        "log-opts": {
+            "max-size": "100m"
+        },
+        "storage-driver": "overlay2"
+    }
+    ```
+
+### Base Instalation
+
+Install kubelet, kubeadm and kubectl from the k8s repo. We should block the packages from auto update with ```sudo apt-mark hold kubelet kubeadm kubectl```. Perhaps the same should be done with docker.
+
+> Note: kublet daemon will not start succesfully after install due to configuration issues.
+
 ### Control Plane
 
 ### Memeber Nodes
