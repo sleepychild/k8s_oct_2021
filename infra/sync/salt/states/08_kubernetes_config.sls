@@ -33,7 +33,7 @@ node.taint:
 
 flannel.install:
   cmd.run:
-    - name: kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+    - name: kubectl apply -f /sync/flannel/kube-flannel.yml
 
 # calico.install:
 #   cmd.run:

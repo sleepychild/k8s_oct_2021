@@ -14,6 +14,7 @@ install.base:
       - python-apt
       - python3-pip
       - apt-transport-https
+      - etcd-client
 
 docker-py:
   pip.installed:

@@ -79,8 +79,90 @@ The kube-system coredns pods require a CNI to function propperly.
 
 Flannel VS Calico and general [CNI comparison doc](https://www.suse.com/c/rancher_blog/comparing-kubernetes-cni-providers-flannel-calico-canal-and-weave/).
 
-We will use flannel.
+We will use flannel. It has a bug when used with vagrant b/c the first interface is NAT and flanneld binds to it. The solution is to modify the ```kube-flannel.yml``` file adding the ```- --iface=enp0s8``` argument to the ```/opt/bin/flanneld``` command.
+
+```yml
+      containers:
+      - name: kube-flannel
+        image: quay.io/coreos/flannel:v0.15.1
+        command:
+        - /opt/bin/flanneld
+        args:
+        - --ip-masq
+        - --kube-subnet-mgr
+        - --iface=enp0s8
+```
 
 ## Manage and Upgrade
 
+### Node Maintenance
+
+To do maintenance on a node in the cluster we...
+ * ```kubectl cordon {node_name}``` - make node unavailable for new work
+ * ```kubectl drain {node_name}``` - migrate workload off of node (includes cordon)
+ * Pods get **evicted** from the drained node
+ * node is ready for maintenance
+ * ```kubectl uncordon {node_name}``` - make node available for new work 
+
+### Cluster state Backup / Restore
+
+A **etcd** database holds the state. It runs on the control plane nodes (in our case). We use the **etcdctl** tool available from the **etcd-client** package. Relevant data about the etcd is stored in ```/etc/kubernetes/manifests/etcd.yaml```.
+
+#### Backup
+```bash
+sudo ETCDCTL_API=3 etcdctl \
+--endpoints=https://127.0.0.1:2379 \
+--cacert=/etc/kubernetes/pki/etcd/ca.crt \
+--cert=/etc/kubernetes/pki/etcd/server.crt \
+--key=/etc/kubernetes/pki/etcd/server.key \
+snapshot save /sync/etcd-snapshot.db
+```
+#### Restore
+```bash
+sudo ETCDCTL_API=3 etcdctl \
+snapshot restore /sync/etcd-snapshot.db \
+--data-dir /var/lib/etcd-restore
+```
+Then edit the etcd.yaml to set spec > volumes > hostPath named etcd-data > path to ```/var/lib/etcd-restore```. The cluster should pick up the change within a minute.
+
+### Cluster update
+
+First the control plane nodes one by one.
+ - upgrade kubeadm
+   ```bash
+   apt-get install -y --allow-change-held-packages kubeadm=X.XX.X-XX
+   ```
+ - upgrade node
+   ```bash
+   source <(kubeadm completion bash)
+   kubeadm upgrade plan
+   kubeadm upgrade apply vX.XX.X
+   ```
+ - drain the node
+   ```bash
+   kubectl drain main # for example
+   ```
+ - upgrade other components ( e.g. kubectl & kubelet )
+   ```bash
+   apt-get install -y --allow-change-held-packages kubectl=X.XX.X-XX kubelet=X.XX.X-XX
+   systemctl daemon-reload
+   systemctl restart kubelet
+   ```
+ - uncordon the node
+   ```bash
+   kubectl uncordon main # for example
+   ```
+
+Then the pod nodes with the same approach. They should be drained and uncordoned from a control plane node.
+
+> !!! We can't skip multiple versions !!!
+
+> Note: you should use ```apt-get install -y --allow-change-held-packages {package}=X.XX.X-XX``` if you have apt-mark ed them to be held. 
+
 ## HA K8S Cluster
+
+We need a load balancer in front of the control plane nodes. We use HA-Proxy.
+
+### Stacked ETCD
+
+### External ETCD
