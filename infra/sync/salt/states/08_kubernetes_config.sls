@@ -26,27 +26,26 @@ cluster.init:
     - group: vagrant
     - mode: 755
 
-
 node.taint:
   cmd.run:
     - name: kubectl taint nodes --all node-role.kubernetes.io/master-
 
-flannel.install:
+# flannel.install:
+#   cmd.run:
+#     - name: kubectl apply -f /sync/flannel/kube-flannel.yml
+
+calico.install:
   cmd.run:
-    - name: kubectl apply -f /sync/flannel/kube-flannel.yml
+    - name: kubectl create -f https://docs.projectcalico.org/manifests/tigera-operator.yaml
 
-# calico.install:
-#   cmd.run:
-#     - name: kubectl create -f https://docs.projectcalico.org/manifests/tigera-operator.yaml
+calico.config.0:
+  cmd.run:
+    - name: wget https://docs.projectcalico.org/manifests/custom-resources.yaml -O /tmp/custom-resources.yaml
 
-# calico.config.0:
-#   cmd.run:
-#     - name: wget https://docs.projectcalico.org/manifests/custom-resources.yaml -O /tmp/custom-resources.yaml
+calico.config.1:
+  cmd.run:
+    - name: sed -i 's/192.168.0.0/10.244.0.0/g' /tmp/custom-resources.yaml
 
-# calico.config.1:
-#   cmd.run:
-#     - name: sed -i 's/192.168.0.0/10.244.0.0/g' /tmp/custom-resources.yaml
-
-# calico.config.2:
-#   cmd.run:
-#     - name: kubectl create -f /tmp/custom-resources.yaml
+calico.config.2:
+  cmd.run:
+    - name: kubectl create -f /tmp/custom-resources.yaml
