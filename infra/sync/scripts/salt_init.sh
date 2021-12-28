@@ -14,7 +14,7 @@ sudo salt '*' state.apply 08_kubernetes_install
 
 sudo salt 'main' state.apply 08_kubernetes_config
 
-sleep 1m # Wait for master to be up and running
+sleep 3m # Wait for master to be up and running
 
 sudo salt 'node1' state.apply 08_kubernetes_join
 

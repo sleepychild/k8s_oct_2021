@@ -30,6 +30,14 @@ node.taint:
   cmd.run:
     - name: kubectl taint nodes --all node-role.kubernetes.io/master-
 
+token.create:
+  cmd.run:
+    - name: kubeadm token create abcdef.1234567890abcdef
+
+hash.create:
+  cmd.run:
+    - name: openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2>/dev/null | openssl dgst -sha256 -hex | sed 's/^.* //' > /sync/k8s/hash.txt
+
 # flannel.install:
 #   cmd.run:
 #     - name: kubectl apply -f /sync/flannel/kube-flannel.yml

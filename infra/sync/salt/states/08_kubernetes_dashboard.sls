@@ -17,11 +17,3 @@ dashboard.token:
 dashboard.token.only:
   cmd.run:
     - name: grep -E "^token:" /sync/k8s/admin-user-token.txt | tr -s " " | cut -d " " -f 2 > /sync/k8s/token
-
-token.create:
-  cmd.run:
-    - name: kubeadm token create abcdef.1234567890abcdef
-
-hash.create:
-  cmd.run:
-    - name: openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2>/dev/null | openssl dgst -sha256 -hex | sed 's/^.* //' > /sync/k8s/hash.txt
