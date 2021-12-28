@@ -17,3 +17,7 @@ dashboard.token:
 dashboard.token.only:
   cmd.run:
     - name: grep -E "^token:" /sync/k8s/admin-user-token.txt | tr -s " " | cut -d " " -f 2 > /sync/k8s/token
+
+# dashboard.svc:
+#   cmd.run:
+#     - name: kubectl apply -f /sync/dashboard-svc/dashboard-svc.yml

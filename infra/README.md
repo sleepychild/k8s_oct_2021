@@ -4,7 +4,7 @@
 
 ### Deploy Infra
 ```bash
-./deploy.sh 2>&1 | tee "log/deploy $(date).log"
+./deploy.sh 2201 2>&1 | tee "log/deploy $(date).log"
 ```
 ### Destroy Infra
 ```bash
