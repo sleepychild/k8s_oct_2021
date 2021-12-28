@@ -4,7 +4,7 @@
 
 ### Deploy Infra
 ```bash
-./deploy.sh 2201 2>&1 | tee "log/deploy $(date).log"
+./deploy.sh 2200 2>&1 | tee "log/deploy $(date).log"
 ```
 ### Destroy Infra
 ```bash
@@ -45,6 +45,8 @@ ip address show | grep -E " inet .*/24" | tr -s " " | cut -d " " -f 3 | cut -d "
 kubectl proxy --address="$(ip address show | grep -E " inet .*/24" | tr -s " " | cut -d " " -f 3 | cut -d "/" -f 1 | sed -n -e "1{p;q;}")"
 ```
 [k8s Dashboard](http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/)
+
+[k8s Dashboard NodePort](https://192.168.120.100:30080) should work without the proxy.
 
 ## Set local kubectl
 
