@@ -1,0 +1,26 @@
+apiVersion: projectcontour.io/v1
+kind: HTTPProxy
+metadata:
+  name: contour-proxy
+spec:
+  virtualhost:
+    fqdn: demo.lab
+  routes:
+    - conditions:
+      - prefix: /service1
+      services:
+        - name: service1
+          port: 80
+      pathRewritePolicy:
+        replacePrefix:
+        - prefix: /service1
+          replacement: /
+    - conditions:
+      - prefix: /service2
+      services:
+        - name: service2
+          port: 80
+      pathRewritePolicy:
+        replacePrefix:
+        - prefix: /service2
+          replacement: /

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: hw
+    role: speaker
+  name: speaker
+spec:
+  containers:
+  - image: shekeriev/k8s-speaker
+    name: speaker

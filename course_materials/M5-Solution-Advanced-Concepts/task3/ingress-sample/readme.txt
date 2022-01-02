@@ -1,0 +1,2 @@
+Plese keep in mind that the Ingress implementation of Contour doesn't support rewriting. That is why, we used the HTTPProxy object instead of the Ingress one.
+This is provided just for completeness. It is not a working set of files.

@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod205
+spec:
+  nodeSelector:
+    exam: fast
+  containers:
+  - image: alpine
+    name: main
+    args:
+    - /bin/sh
+    - -c
+    - sleep 86400

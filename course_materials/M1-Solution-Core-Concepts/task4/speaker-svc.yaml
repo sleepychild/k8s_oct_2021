@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: hw
+  name: speaker
+spec:
+  ports:
+  - name: speaker-port
+    port: 5000
+    protocol: TCP
+    targetPort: 5000
+  selector:
+    app: hw
+    role: speaker

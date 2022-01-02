@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kust
+spec:
+  ports:
+  - nodePort: 32103
+    port: 80
+    protocol: TCP
