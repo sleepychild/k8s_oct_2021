@@ -1,4 +1,5 @@
 # Quiz
+
 Exam Prep Quiz [Link](https://zahariev.pro/q/k8s/index.php)
 
 ## M1
@@ -6,29 +7,30 @@ Exam Prep Quiz [Link](https://zahariev.pro/q/k8s/index.php)
 ### Which is NOT a responsibility of the kubelet?
  - [ ] Reports back to the Control Plane
  - [ ] Creates pods
- - [ ] Provides the networking
+ - [x] Provides the networking
  - [ ] Listens to the API Server
 
 ### Which Control Plane component maintains the desired state?
-Controller Manager
-Persistent Store
-API Server
-Scheduler
+ - [x] Controller Manager
+ - [ ] Persistent Store
+ - [ ] API Server
+ - [ ] Scheduler
 
 ### Which is NOT a valid service type?
-Ingress
-ClusterIP
-NodePort
-LoadBalancer
+ - [x] Ingress
+ - [ ] ClusterIP
+ - [ ] NodePort
+ - [ ] LoadBalancer
 
 ### Which is the smallest unit of scheduling in Kubernetes?
-ReplicaSet
-Pod
-Deployment
-StatefulSet
+ - [ ] ReplicaSet
+ - [x] Pod
+ - [ ] Deployment
+ - [ ] StatefulSet
 
 ### What level of isolation is offered by containers?
-Lightweight
-Transparent
-Full
-Complete
+ - [x] Lightweight
+ - [ ] Transparent
+ - [ ] Full
+ - [ ] Complete
+
