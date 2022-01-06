@@ -287,3 +287,65 @@ Exam Prep Quiz [Link](https://zahariev.pro/q/k8s/index.php)
  - [ ] Metadata
  - [ ] Request
  - [ ] RequestResponce
+
+## Quiz B
+
+### What is the action that marks a node as unavailable for new work?
+ - [ ] Taint
+ - [ ] Uncordon
+ - [x] Cordon
+ - [ ] Drain
+
+### What we do NOT store in screts?
+ - [ ] Token
+ - [ ] Password
+ - [x] Configuration
+ - [ ] Key
+
+### What is the default maximum value for a NodePort?
+ - [ ] 32000
+ - [ ] 32565
+ - [x] 32767
+ - [ ] 31656
+
+### Which is the default service type?
+ - [x] ClusterIP
+ - [ ] LoadBalancer
+ - [ ] NodePort
+ - [ ] ExternalName
+
+### What is the allowed difference between the version of kubectl and the cluster?
+ - [ ] No difference allowed
+ - [ ] (+/-) 2 minor versions
+ - [x] (+/-) 1 minor version
+ - [ ] (+/-) 1 major version
+
+### What additional template is part of the manifest of a StatefulSet?
+ - [ ] Replication Controller
+ - [x] Volume Claim
+ - [ ] Volume
+ - [ ] Replica Set
+
+### Which is NOT true about namespaces?
+ - [ ] Each object can be in only one namespace
+ - [ ] Namespaces provde scope for names
+ - [x] Namespaces can be nested
+ - [ ] Deleting a namespace will delete everything in it
+
+### In a multi-container pod, what is the name of the containers that are executed before all others?
+ - [ ] Application Containers
+ - [ ] Sidecar Containers
+ - [ ] Adapter Containers
+ - [x] Init Containers
+
+### Which service type opens the same port on every node in the cluster?
+ - [ ] ClusterIP
+ - [ ] PortNode
+ - [ ] LoadBalancer
+ - [x] NodePort
+
+### What object is used by the deployments to scale the pods?
+ - [ ] StatefulSet
+ - [ ] PodAutoScaler
+ - [ ] ReplicationController
+ - [x] ReplicaSet
