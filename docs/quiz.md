@@ -66,3 +66,34 @@ Exam Prep Quiz [Link](https://zahariev.pro/q/k8s/index.php)
  - [ ] MongoDB
  - [x] etcd
 
+## M3
+
+### Which is NOT a valid combination?
+ - [ ] ClusterRole-RoleBinding
+ - [ ] Role-RoleBinding
+ - [ ] ClusterRole-ClusterRoleBinding
+ - [x] Role-ClusterRoleBinding
+
+### Which Pod Network plugin does NOT support Network Policies?
+ - [ ] Calico
+ - [x] Flannel
+ - [ ] Antrea
+ - [ ] Cilium
+
+### Which is NOT part of the access control process?
+ - [ ] Authorization
+ - [ ] Authentication
+ - [x] Filtering
+ - [ ] Admission Control
+
+### What requests are ignored by Admission Controllers?
+ - [ ] Delete
+ - [ ] Modify
+ - [x] Read
+ - [ ] Create
+
+### Which is the first phase of the access control process?
+ - [ ] Authorization
+ - [ ] Admission Control
+ - [x] Authentication
+ - [ ] Delegation
