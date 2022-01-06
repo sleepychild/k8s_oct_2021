@@ -161,3 +161,129 @@ Exam Prep Quiz [Link](https://zahariev.pro/q/k8s/index.php)
  - [ ] StatefulSet
  - [ ] DaemonSet
  - [x] CronJob
+
+## M6
+
+### Which is NOT a valid probe status?
+ - [x] Wating
+ - [ ] Success
+ - [ ] Failure
+ - [ ] Unknown
+
+### Which probe, when failed, removes endpoints from a service?
+ - [x] Readiness
+ - [ ] None
+ - [ ] Startup
+ - [ ] Liveness
+
+### Which is the default container restart policy in a pod?
+ - [ ] Never
+ - [ ] OnFailure
+ - [ ] OnTerminate
+ - [x] Always
+
+### Which is NOT a valid probe check method?
+ - [ ] Exec
+ - [ ] TCP
+ - [ ] HTTP
+ - [x] Scan
+
+### Which is NOT a valid probe?
+ - [ ] Liveness
+ - [ ] Readiness
+ - [x] Status
+ - [ ] Startup
+
+## M7
+
+### What is the name of the outcome in a cluster when applying an overlay to a base with kustomize?
+ - [ ] Deployment
+ - [x] Variant
+ - [ ] Application
+ - [ ] Patch
+
+### Imagine that there is a value replicaCount. How can we use it in a manifest?
+ - [x] {{ .Values.replicaCount }}
+ - [ ] {{ .replicaCount }}
+ - [ ] {{ Values.replicaCount }}
+ - [ ] {{ .Chart.replicaCount }}
+
+### What is the term for an installed Helm chart?
+ - [ ] Chart
+ - [ ] Installation
+ - [ ] Deployment
+ - [x] Release
+
+### Which file contains information about the chart?
+ - [x] Chart.yaml
+ - [ ] chart.yaml
+ - [ ] template.yaml
+ - [ ] helm.yaml
+
+### Which file contains the default configuration values for a chart?
+ - [x] values.yaml
+ - [ ] default.yaml
+ - [ ] configuration.yaml
+ - [ ] Values.yaml
+
+## Quiz A
+
+### Which resource allows workload distribution to every eligible node?
+ - [ ] Deployment
+ - [ ] StatefulSet
+ - [ ] CronJob
+ - [x] DaemonSet
+
+### If a Pod is in pending state, which is the most probable cause for this?
+ - [ ] Wrong image architecture
+ - [ ] Manifest error
+ - [ ] Missing image
+ - [x] Lack of resources
+
+### Which component is responsible for pulling the container images?
+ - [ ] Scheduler
+ - [ ] Controller Manager
+ - [x] Container Runtime
+ - [ ] Kubelet
+
+### Which is NOT part of the worker nodes?
+ - [x] Controller Manager
+ - [ ] Container Runtime
+ - [ ] Kubelet
+ - [ ] Kube Proxy
+
+### Which could NOT be a subject of a RoleBinding or ClusterRoleBinding?
+ - [ ] Service Accounts
+ - [ ] Users
+ - [x] Objects
+ - [ ] Groups
+
+### Which component is upgraded first, when upgrading clusters created with kubeadm?
+ - [ ] etcd
+ - [ ] kubectl
+ - [ ] kubelet
+ - [x] kubeadm
+
+### Which construct will return the release name in a manifest?
+ - [ ] {{ Release.Name }}
+ - [ ] $Release.Name
+ - [x] {{ .Release.Name }}
+ - [ ] {{ ReleaseName }}
+
+### What is the type of relation during the PVC to PV binging process?
+ - [ ] many-to-many
+ - [x] one-to-one
+ - [ ] many-to-one
+ - [ ] one-to-many
+
+### Which is the last step of the access control process?
+ - [ ] Filtering
+ - [x] Admission Control
+ - [ ] Authentication
+ - [ ] Authorization
+
+### Which is NOT a valid Audit level?
+ - [x] RequestComplete
+ - [ ] Metadata
+ - [ ] Request
+ - [ ] RequestResponce
