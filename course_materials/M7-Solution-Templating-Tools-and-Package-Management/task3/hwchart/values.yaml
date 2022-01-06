@@ -1,0 +1,3 @@
+replicaCount: 3
+htmlText: "Kubernetes + Helm = Awesome!"
+nodePort: 31000
