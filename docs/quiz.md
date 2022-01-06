@@ -97,3 +97,67 @@ Exam Prep Quiz [Link](https://zahariev.pro/q/k8s/index.php)
  - [ ] Admission Control
  - [x] Authentication
  - [ ] Delegation
+
+## M4
+
+### Which is NOT a valid Persistent Volume type?
+ - [x] tempfs
+ - [ ] local
+ - [ ] nfs
+ - [ ] cephfs
+
+### Which is NOT a valid Persistent Volume phase?
+ - [ ] Failed
+ - [x] Created
+ - [ ] Released
+ - [ ] Available
+
+### What is the maximum size of data that can be stored by a ConfigMap?
+ - [ ] 100 MiB
+ - [ ] 10 MiB
+ - [ ] 1 GiB
+ - [x] 1 MiB
+
+### Which is NOT a valid Persistent Volume access mode?
+ - [ ] ReadOnlyMany
+ - [ ] ReadWriteOnce
+ - [ ] ReadWriteMany
+ - [x] ReadOnlyOnce
+
+### Which is NOT a valid Persistent Volume reclaim policy?
+ - [ ] Retain
+ - [ ] Recycle
+ - [ ] Delete
+ - [x] Recreat
+
+## M5
+
+### Which component manages the static pods?
+ - [x] kubelet
+ - [ ] API Server
+ - [ ] Scheduler
+ - [ ] Container Runtime
+
+### Which is NOT a valid pattern for an application container in a multi-container pod?
+ - [ ] Adapter
+ - [x] Translator
+ - [ ] Ambassador
+ - [ ] Sidecar
+
+### Which is NOT a valid taint effect?
+ - [x] PreferNoExecute
+ - [ ] NoSchedule
+ - [ ] PreferNoSchedule
+ - [ ] NoExecute
+
+### Which is NOT a valid autoscaling type?
+ - [x] Scale up the cluster
+ - [ ] Scale out the pods
+ - [ ] Scale out the cluster
+ - [ ] Scale up the pods
+
+### Which workload resource allows scheduled execution?
+ - [ ] Job
+ - [ ] StatefulSet
+ - [ ] DaemonSet
+ - [x] CronJob
