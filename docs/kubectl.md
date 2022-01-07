@@ -7,3 +7,10 @@ Base syntax: ```kubectl {command} {TYPE} {NAME} {flags}```
  - TYPE is the resource type e.g. pod, service ...
  - NAME is case-sensitive identifyer
  - flags ...
+
+# Contexts
+
+```bash
+kubectl config get-contexts
+kubectl config use-context {CONTEXT_NAME}
+```

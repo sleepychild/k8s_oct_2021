@@ -2,6 +2,68 @@
 
 Exam Prep Quiz [Link](https://zahariev.pro/q/k8s/index.php)
 
+## Quiz Prep
+
+### What is the default tag if no tag specified for a container image?
+ - [ ] last
+ - [x] latest
+ - [ ] newest
+ - [ ] none it is mandatory attribute
+
+### Which TWO are valid types of a Service?
+ - [x] LoadBalancer
+ - [ ] Internal
+ - [ ] ExternalIP
+ - [x] ClusterIP
+
+### Which object ype gives us a mechanism to distribute workload on all eligible nodes?
+ - [ ] Deployment
+ - [ ] StatefulSet
+ - [ ] ReplicaSet
+ - [x] DaemonSet
+
+### How, by which other object, Deployment controls pod copies?
+ - [ ] ReplicationController
+ - [x] ReplicaSet
+ - [ ] StatefulSet
+ - [ ] DaemonSet
+
+### What is the purpose of the init containers?
+ - [ ] No such containers
+ - [ ] Act as adapters for the main containers
+ - [x] Prepare the environment for the application containers
+ - [ ] Act as sidecars for the main containers
+
+### Which service type is assumed by default?
+ - [ ] LoadBalancer
+ - [ ] NodePort
+ - [x] ClusterIP
+ - [ ] ExternalName
+
+### Which TWO are valid ways to assign a pod to a node?
+ - [ ] podSelector
+ - [x] nodeSelector
+ - [ ] Label Selector
+ - [x] nodeName
+
+### Which TWO Pod Network plugins support network policies?
+ - [ ] RouterNet
+ - [x] Antrea
+ - [ ] Flannel
+ - [x] WeaveNet
+
+### Which, by default, is the lowest node port number?
+ - [ ] 32 000
+ - [x] 30 000
+ - [ ] 3 000
+ - [ ] 32 767
+
+### Which is NOT a valid multi-container pattern?
+ - [ ] Adapter
+ - [ ] Ambassador
+ - [ ] Sidecar
+ - [x] Helper
+
 ## M1
 
 ### Which is NOT a responsibility of the kubelet?
