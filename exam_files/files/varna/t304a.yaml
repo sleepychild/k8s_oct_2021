@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod304
+spec:
+  containers:
+  - image: hub.zahariev.pro/alpine
+    name: main
+    args:
+    - /bin/sh
+    - -c
+    - sleep 86400

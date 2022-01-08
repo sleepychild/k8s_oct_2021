@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: exam-nginx-cm
+  namespace: tomato
+data:
+  index.html: Helm and Kubernetes Master

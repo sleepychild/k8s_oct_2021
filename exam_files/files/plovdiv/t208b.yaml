@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod208
+spec:
+  containers:
+  - image: hub.zahariev.pro/alpine
+    name: main
+    args:
+    - /bin/sh
+    - -c
+    - sleep 86400
+  nodeName: plovdiv-1

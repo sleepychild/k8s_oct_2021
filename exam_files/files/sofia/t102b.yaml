@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: cjob
+spec: 
+  schedule: "*/10 * * * *"
+  jobTemplate:
+    spec: 
+      template:
+        metadata:
+          name: sleeper
+        spec:
+          restartPolicy: OnFailure
+          containers:
+          - image: hub.zahariev.pro/alpine
+            name: main
+            args:
+            - /bin/sh
+            - -c
+            - sleep 60

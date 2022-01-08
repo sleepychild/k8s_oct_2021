@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kust
+spec:
+  template:
+    metadata:
+      labels:
+        app: kust
+    spec:
+      containers:
+      - name: main
+        image: hub.zahariev.pro/k8s-environ:green
+        env:
+        - name: APPROACH
+          value: "Templating with Kustomize"
+        - name: FOCUSON
+          value: "APPROACH"

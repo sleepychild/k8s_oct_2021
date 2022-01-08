@@ -1,0 +1,36 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: cherry
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: t305
+  namespace: cherry
+  labels:
+    app: t305
+spec:
+  containers:
+  - image: hub.zahariev.pro/k8s-environ
+    name: main
+    env:
+    - name: FRUIT
+      value: "Did you know that cherries are red and tasty? :)"
+    - name: FOCUSON
+      value: "FRUIT"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cherry-svc
+  namespace: cherry
+spec:
+  ports:
+  - nodePort: 32305
+    port: 80
+    protocol: TCP
+  selector:
+    app: t305
+  type: NodePort

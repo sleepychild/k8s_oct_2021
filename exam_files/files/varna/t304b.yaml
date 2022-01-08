@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pod304
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: pod304
+  template:
+    metadata:
+      labels:
+        app: pod304
+    spec:
+      containers:
+      - image: hub.zahariev.pro/alpine
+        name: main
+        args:
+        - /bin/sh
+        - -c
+        - sleep 86400

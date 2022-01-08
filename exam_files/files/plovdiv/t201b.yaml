@@ -1,0 +1,14 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: access-apple
+  namespace: apple
+spec:
+  podSelector:
+    matchLabels:
+      namespace: apple
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          namespace: orange
